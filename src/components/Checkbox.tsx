@@ -1,7 +1,11 @@
 import React from "react";
 import { styled } from "styled-components";
 
-const Checkbox = () => {
+interface ICheckboxProps {
+  options: any
+}
+
+const Checkbox = (props: ICheckboxProps) => {
 
   const Checkbox = styled.input`
   
@@ -9,7 +13,7 @@ const Checkbox = () => {
 
   return (
     <div style={{ display: 'flex', alignItems: 'center', marginTop: 20 }}>
-      <Checkbox type="checkbox" />
+      <Checkbox {...props.options} type="checkbox" />
       <p>Запомнить пароль</p>
     </div>
   )
