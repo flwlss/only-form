@@ -25,6 +25,7 @@ const Container = (props: IContainerProps) => {
     top: 40px;
     left: 50%;
     transform: translate(-50%);
+    font-weight: 700;
   `
 
   return (

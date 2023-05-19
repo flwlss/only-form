@@ -14,6 +14,7 @@ const BlueButton = () => {
     line-height: 22px;
     margin-top: 40px;
     cursor: pointer;
+    font-weight: 700;
   `
 
   return (
