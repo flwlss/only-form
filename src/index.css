@@ -46,3 +46,9 @@ form {
   max-width: 33.33%;
   margin: 0 auto;
 }
+
+.requiredField {
+  font-size: 14px;
+  margin-top: 8px;
+  color: #E26F6F;
+}

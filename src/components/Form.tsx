@@ -7,23 +7,48 @@ import { useNavigate } from "react-router-dom";
 import { PATHS } from "../navigation/paths";
 import ErrorRectangle from "./ErrorRectangle";
 
+interface data {
+  login: string
+  password: string
+}
+
 const Form = () => {
 
   const { register, handleSubmit, formState: { errors } } = useForm()
 
   const navigation = useNavigate()
 
-  const onSubmit = (data: Object) => {
-    alert(JSON.stringify(data));
-  }
+  const [loading, setLoading] = useState(false)
+  const [serverError, setServerError] = useState(false)
+
+  const onSubmit = (userData: any) => new Promise<any>(resolve => {
+    setLoading(true)
+    setServerError(false)
+    setTimeout(() => resolve({ login: 'steve.jobs@example.com', password: 'password' }), 1000)
+  }).then((data: data) => {
+    setLoading(false)
+    if (data.login === userData.login && data.password === userData.password) {
+      navigation(PATHS.PROFILE)
+    } else {
+      setServerError(true)
+    }
+  })
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <ErrorRectangle />
-      <CustomInput error={errors.login} label="Логин" options={{ ...register('login', { required: true }) }} />
-      <CustomInput type="password" error={errors.password} label="Пароль" options={{ ...register('password', { required: true }) }} />
+      {serverError && <ErrorRectangle />}
+      <CustomInput
+        type="email"
+        error={errors.login}
+        label="Логин"
+        options={{ ...register('login', { required: true }) }} />
+      <CustomInput
+        type="password"
+        error={errors.password}
+        label="Пароль"
+        options={{ ...register('password', { required: true }) }} />
       <Checkbox options={{ ...register('checkbox') }} />
-      <BlueButton disabled={false} />
+      <BlueButton disabled={loading} />
     </form>
   )
 }

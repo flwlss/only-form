@@ -5,7 +5,7 @@ interface ICustomInputProps {
   label: string
   options: object
   error: any
-  type?: string
+  type: string
 }
 
 const CustomInput = (props: ICustomInputProps) => {
@@ -30,8 +30,8 @@ const CustomInput = (props: ICustomInputProps) => {
   return (
     <div style={{ marginBottom: 20 }}>
       <Label>{props.label}</Label>
-      <Input type={props.type || 'text'} {...props.options} />
-      {props.error && <p style={{ fontSize: 14, marginTop: 8, color: '#E26F6F' }}>Обязательное поле</p>}
+      <Input type={props.type} {...props.options} />
+      {props.error && <p className="requiredField">Обязательное поле</p>}
     </div>
   )
 }
