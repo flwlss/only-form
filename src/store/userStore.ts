@@ -1,6 +1,6 @@
 import { makeAutoObservable } from 'mobx'
 
-class Index {
+class UserStore {
 
   login = ''
 
@@ -14,4 +14,4 @@ class Index {
 
 }
 
-export default new Index()
+export default new UserStore()

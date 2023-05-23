@@ -1,6 +1,6 @@
 import React from 'react'
 import Container from '../components/Container'
-import index from '../store/index'
+import userStore from '../store/userStore'
 import WhiteButton from '../components/WhiteButton'
 
 const Profile = () => {
@@ -8,7 +8,7 @@ const Profile = () => {
     <Container>
       <div className='profileWrapper'>
         <p style={{ fontSize: 40 }}>Здравствуйте,
-          <span style={{ fontWeight: '700' }}> {index.login}</span>
+          <span style={{ fontWeight: '700' }}> {userStore.login}</span>
         </p>
         <WhiteButton />
       </div>

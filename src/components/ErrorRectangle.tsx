@@ -1,6 +1,6 @@
 import React from 'react'
 import { styled } from 'styled-components'
-import index from '../store/index'
+import userStore from '../store/userStore'
 
 const ErrorRectangle = () => {
 
@@ -32,7 +32,7 @@ const ErrorRectangle = () => {
   return (
     <Rectangle>
       <Sign>!</Sign>
-      <p>Пользователя {index.login} не существует</p>
+      <p>Пользователя {userStore.login} не существует</p>
     </Rectangle>
   )
 }

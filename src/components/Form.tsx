@@ -6,7 +6,7 @@ import CustomInput from "./CustomInput";
 import { useNavigate } from "react-router-dom";
 import { PATHS } from "../navigation/paths";
 import ErrorRectangle from "./ErrorRectangle";
-import index from '../store/index'
+import userStore from '../store/userStore'
 
 interface data {
   login: string
@@ -28,7 +28,7 @@ const Form = () => {
     setTimeout(() => resolve({ login: 'steve.jobs@example.com', password: 'password' }), 1000)
   }).then((data: data) => {
     setLoading(false)
-    index.newLogin(userData.login)
+    userStore.newLogin(userData.login)
     if (data.login === userData.login && data.password === userData.password) {
       navigation(PATHS.PROFILE)
     } else {
