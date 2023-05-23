@@ -2,7 +2,7 @@ import React from "react";
 import { styled } from "styled-components";
 
 interface ICheckboxProps {
-  options: any
+  options: object
 }
 
 const Checkbox = (props: ICheckboxProps) => {
