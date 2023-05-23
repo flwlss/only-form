@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { styled } from "styled-components";
 
 interface ICustomInputProps {
   label: string
-  options: Object
+  options: object
+  error: any
+  type?: string
 }
 
 const CustomInput = (props: ICustomInputProps) => {
@@ -18,20 +20,19 @@ const CustomInput = (props: ICustomInputProps) => {
     width: 100%;
     height: 60px;
     background-color: #F5F5F5;
-    border: 1px solid transparent;
+    border: 1px solid ${props.error ? '#E26F6F' : 'transparent'};
     border-radius: 8px;
     outline: none;
-    padding-left: 20px
+    padding-left: 20px;
+    caret-color: ${props.error ? '#E26F6F' : ''};
   `
 
   return (
-    <>
-      <Label>
-        {props.label}
-      </Label>
-      <Input
-        {...props.options} />
-    </>
+    <div style={{ marginBottom: 20 }}>
+      <Label>{props.label}</Label>
+      <Input type={props.type || 'text'} {...props.options} />
+      {props.error && <p style={{ fontSize: 14, marginTop: 8, color: '#E26F6F' }}>Обязательное поле</p>}
+    </div>
   )
 }
 

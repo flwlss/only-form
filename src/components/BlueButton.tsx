@@ -1,11 +1,15 @@
 import React from 'react'
 import { styled } from "styled-components";
 
-const BlueButton = () => {
+interface IBlueButtonProps {
+  disabled: boolean
+}
+
+const BlueButton = (props: IBlueButtonProps) => {
 
   const Button = styled.button`
     width: 100%;
-    background-color: #4A67FF;
+    background-color: ${props.disabled ? '#99A9FF' : '#4A67FF'};
     height: 60px;
     border: none;
     border-radius: 8px;
@@ -18,7 +22,7 @@ const BlueButton = () => {
   `
 
   return (
-    <Button>
+    <Button disabled={props.disabled}>
       Войти
     </Button>
   )

@@ -43,4 +43,6 @@ body {
 
 form {
   width: 100%;
+  max-width: 33.33%;
+  margin: 0 auto;
 }

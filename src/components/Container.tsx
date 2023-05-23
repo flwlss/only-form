@@ -9,8 +9,6 @@ const Container = (props: IContainerProps) => {
 
   const Container = styled.div`
     height: 100vh;
-    max-width: 33.33%;
-    margin: 0 auto;
     display: flex;
     align-items: center;
     position: relative;
