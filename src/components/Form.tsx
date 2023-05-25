@@ -15,7 +15,7 @@ interface data {
 
 const Form = () => {
 
-  const { register, handleSubmit, formState: { errors } } = useForm()
+  const { register, handleSubmit, formState: { errors } } = useForm({ reValidateMode: 'onSubmit' })
 
   const navigation = useNavigate()
 
